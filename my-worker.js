@@ -1,19 +1,28 @@
 // change precacheVersion whenever you update this file
 // (e.g. if you add a new url to the precacheFiles array.)
-const precacheVersion = 1;
+const precacheVersion = 9;
 const precacheName = "precache-v" + precacheVersion;
 
 /*
 In the array below, include the urls to all the posts/pages 
 that you want cached for offline access. For files that are nested
-more than two directories deep, you may need the full url.
+more than two directories deep, you will need the full url.
 
-E.g. Pages within `/blog/animation/`, may not get cached. You may need 
-something like `/blog/animation/using-react-sprint` for each page in 
+E.g. Pages within `/blog/animation/`, will not get cached. You will 
+to enter the full url, e.g., `/blog/animation/using-react-sprint` for each page in 
 the directory. 
 */
 
-const precacheFiles = ["/", "/blog/", "/static/"];
+const precacheFiles = [
+    "/",
+    "/about/",
+    "/search/",
+    "/blog/",
+    "/blog/post-one-code-block-demo/",
+    "/blog/post-two-image-demo/",
+    "/blog/post-three-smooth-scroll-and-reading-progress-bar/",
+    "/blog/post-four-link-on-twitter/"
+];
 
 self.addEventListener("install", e => {
     console.log("[ServiceWorker] Installed");
@@ -22,7 +31,7 @@ self.addEventListener("install", e => {
 
     e.waitUntil(
         caches.open(precacheName).then(cache => {
-            console.log("[ServiceWorker] Precaching files");
+            console.log("[ServiceWorker] Precaching files", cache);
             return cache.addAll(precacheFiles);
         })
     );

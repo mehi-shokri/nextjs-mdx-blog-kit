@@ -80,12 +80,14 @@ strong {
     padding: 40px 20px 100px 20px;
     position: relative;
 }
-.blog-layout > div {
+.blog-layout {
     display: flex;
     flex-direction: column;
 }
-img.img-centered {
+img {
     max-width: 100%;
+}
+img.img-centered {
     align-self: center;
     margin: 10px 0px;
 }
@@ -121,6 +123,7 @@ li,
 ul,
 ol {
     font-size: 18px;
+    line-height: 24px;
     word-break: break-word /* This prevents a bug with the reading progress bar. Leave this style here unless you are removing the reading progress bar. */
 }
 
